@@ -1,0 +1,58 @@
+## Ignore build output
+bin/
+obj/
+**/bin/
+**/obj/
+
+## User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Rider / VSCode / VS for Mac
+.idea/
+.vscode/
+.vs/
+src/.vs
+
+## ASP.NET Core generated files
+wwwroot/lib/
+wwwroot/dist/
+node_modules/
+libman.json.cache
+
+## Logs
+*.log
+
+## Configuration
+appsettings.Development.json
+appsettings.Local.json
+appsettings.*.local.json
+secrets.json
+
+## EF Core Migrations snapshot files (optional)
+**/Migrations/*Snapshot.cs
+
+## Publish output
+publish/
+out/
+
+## Other
+_ReSharper*/
+*.ncrunch*
+*.DS_Store
+Thumbs.db
+
+## JetBrains Rider
+.idea/
+*.sln.iml
+
+## Test results
+TestResults/
+*.coverage
+*.coveragexml
+
+## Tools
+.env
+.env.*

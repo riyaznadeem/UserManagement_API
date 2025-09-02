@@ -16,12 +16,14 @@ namespace Infrastructure.Services
         private readonly ApplicationDbContext _context;
         private readonly PasswordHasher _passwordHasher;
         private readonly JwtTokenService _jwt;
+        private readonly ICurrentUserService _currentUserService;
 
-        public AuthService(ApplicationDbContext context, PasswordHasher passwordHasher, JwtTokenService jwt)
+        public AuthService(ApplicationDbContext context, PasswordHasher passwordHasher, JwtTokenService jwt, ICurrentUserService currentUserService)
         {
             _context = context;
             _passwordHasher = passwordHasher;
             _jwt = jwt;
+            _currentUserService = currentUserService;
         }
 
         public async Task<string> RegisterAsync(RegisterRequest request)
@@ -38,7 +40,11 @@ namespace Infrastructure.Services
                 DisplayName = request.DisplayName,
                 PasswordHash = hash,
                 PasswordSalt = salt,
-                RoleId = request.RoleId
+                RoleId = request.RoleId,
+                IsActive = true,
+                IsDeleted = false,
+                CreatedBy = _currentUserService.UserId,
+                CreatedDate = DateTime.UtcNow,
             };
 
             _context.Users.Add(user);
