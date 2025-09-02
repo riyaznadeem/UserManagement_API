@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "KZfmjp0KtgI=",
+  "success": true,
+  "projectFilePath": "E:\\Nadeem\\UserManagement_API\\src\\Domain\\Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\NADEEM\\.nuget\\packages\\microsoft.net.sdk.compilers.toolset\\9.0.304\\microsoft.net.sdk.compilers.toolset.9.0.304.nupkg.sha512"
+  ],
+  "logs": []
+}
