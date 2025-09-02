@@ -1685,7 +1685,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
-          "Domain": "1.0.0"
+          "Domain": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "9.0.8"
         },
         "compile": {
           "bin/placeholder/Application.dll": {}
