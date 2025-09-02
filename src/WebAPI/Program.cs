@@ -4,20 +4,26 @@ using Infrastructure.Data;
 using Infrastructure.Seeding;
 using Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using System;
+using System.Globalization;
 using System.Text;
 using WebAPI.Middleware;
+using MediatR;
+using Application.Common;
+using Application.Features.Users.Queries;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+// 1. Configure OpenAPI/Swagger service for API documentation
 builder.Services.AddOpenApi();
+
+// 2. Configure strongly typed JwtSettings options from configuration
 builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("Jwt"));
 var jwtSettings = builder.Configuration.GetSection("Jwt").Get<JwtSettings>();
 
+// 3. Configure JWT Authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -34,21 +40,43 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
+// 4. Add Authorization policy service
+builder.Services.AddAuthorization();
 
-builder.Services.AddAuthorization();
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
+// 5. Configure EF Core DbContext with connection string and register as interface
+builder.Services.AddDbContext<IApplicationDbContext, ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
-); 
+);
+
+// 6. Register HttpContextAccessor (for accessing HTTP context inside services)
 builder.Services.AddHttpContextAccessor();
+
+// 7. Add controllers support (API endpoints)
 builder.Services.AddControllers();
-builder.Services.AddAuthorization();
+
+// 8. Add scoped services for dependency injection
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<JwtTokenService>();
 builder.Services.AddScoped<PasswordHasher>();
 builder.Services.AddScoped<RoleSeeder>();
 builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
-builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddScoped<IUserService, UserService>();
 
+// 9. Enable API explorer for Swagger
+builder.Services.AddEndpointsApiExplorer();
+// Mediator
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetUsersListQueryHandler).Assembly));
+// 10. Configure Localization services and supported cultures
+builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+    var supportedCultures = new[] { new CultureInfo("en"), new CultureInfo("ar") };
+    options.DefaultRequestCulture = new RequestCulture("en");
+    options.SupportedCultures = supportedCultures;
+    options.SupportedUICultures = supportedCultures;
+});
+
+// 11. Configure Swagger generator with JWT support in UI
 builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
@@ -58,7 +86,6 @@ builder.Services.AddSwaggerGen(options =>
         Description = "API documentation for User Management"
     });
 
-    // Optional: Add JWT Authentication to Swagger UI
     options.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
     {
         Name = "Authorization",
@@ -66,7 +93,7 @@ builder.Services.AddSwaggerGen(options =>
         Scheme = "Bearer",
         BearerFormat = "JWT",
         In = Microsoft.OpenApi.Models.ParameterLocation.Header,
-        Description = "Enter 'Bearer' [space] and then your valid token in the text input below.\r\n\r\nExample: \"Bearer eyJhb...\""
+        Description = "Enter 'Bearer' [space] and then your valid token.\r\nExample: \"Bearer eyJhb...\""
     });
 
     options.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiSecurityRequirement
@@ -80,39 +107,55 @@ builder.Services.AddSwaggerGen(options =>
                     Id = "Bearer"
                 }
             },
-            new string[] {}
+            Array.Empty<string>()
         }
     });
 });
 
-
+// 12. Build the app
 var app = builder.Build();
+
+// 13. Run database seeding at startup for roles, etc.
 using (var scope = app.Services.CreateScope())
 {
     var seeder = scope.ServiceProvider.GetRequiredService<RoleSeeder>();
     await seeder.SeedAsync();
 }
 
-// Configure the HTTP request pipeline.
+// 14. Configure middleware pipeline
 
 if (app.Environment.IsDevelopment())
 {
+    // Enable OpenAPI and Swagger UI only in Development
     app.MapOpenApi();
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "Your API V1");
-        c.RoutePrefix = string.Empty; // Swagger UI at app root (http://localhost:<port>/)
+        c.RoutePrefix = string.Empty; // Swagger UI at root URL
     });
 }
+
 app.UseHttpsRedirection();
+
+// 15. Use custom global exception handling middleware
 app.UseMiddleware<ExceptionMiddleware>();
+
+// 16. Add Swagger middleware (if not in development, optional)
 app.UseSwagger();
 app.UseSwaggerUI();
+
+// 17. Add Authentication and Authorization middlewares
 app.UseAuthentication();
 app.UseAuthorization();
+
+// 18. Map API controllers endpoints
 app.MapControllers();
 
+// 19. Enable localization middleware for culture-aware responses
+app.UseRequestLocalization();
+
+// 20. Sample endpoint - can be removed in production
 var summaries = new[]
 {
     "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
@@ -120,7 +163,7 @@ var summaries = new[]
 
 app.MapGet("/weatherforecast", () =>
 {
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
+    var forecast = Enumerable.Range(1, 5).Select(index =>
         new WeatherForecast
         (
             DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
@@ -132,6 +175,7 @@ app.MapGet("/weatherforecast", () =>
 })
 .WithName("GetWeatherForecast");
 
+// 21. Run the application
 app.Run();
 
 record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)

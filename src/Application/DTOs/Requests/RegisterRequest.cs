@@ -24,4 +24,17 @@ namespace Application.DTOs.Requests
         [Required]
         public Guid RoleId { get; set; }
     }
+    public class UpdateUserRequest
+    {
+        [Required]
+        public string DisplayName { get; set; }
+
+        public Guid? RoleId { get; set; } // Admin only can update this
+    }
+
+    public class UpdateOwnProfileRequest
+    {
+        [Required]
+        public string DisplayName { get; set; }
+    }
 }

@@ -12,6 +12,7 @@ namespace Application.Common.Interface
     {
         DbSet<User> Users { get; }
         DbSet<Role> Roles { get; }
+        DbSet<AuditLog> AuditLogs { get; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }
