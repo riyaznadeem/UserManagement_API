@@ -32,6 +32,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "WebAPI.Controller.RoleController",
+    "Method": "GetRoleLookup",
+    "RelativePath": "api/Role/GetRoleLookup",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "WebAPI.Controller.UsersController",
     "Method": "Create",
     "RelativePath": "api/Users",
@@ -77,16 +87,6 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "WebAPI.Controller.UsersController",
-    "Method": "GetRoleLookup",
-    "RelativePath": "api/Users/GetRoleLookup",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
     "ReturnTypes": []
   },
   {

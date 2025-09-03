@@ -78,13 +78,7 @@ namespace WebAPI.Controller
             var user = await _userService.UpdateOwnProfileAsync(userId, request);
             return Ok(user);
         }
-        [HttpGet("GetRoleLookup")]
-        [Authorize]
-        public async Task<IActionResult> GetRoleLookup()
-        {
-            var result = await _mediator.Send(new GetRoleLookupQuery());
-            return Ok(result);
-        }
+       
 
     }
 

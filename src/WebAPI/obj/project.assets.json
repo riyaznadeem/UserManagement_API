@@ -5250,24 +5250,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\NADEEM\\.nuget\\packages\\": {},
+    "C:\\Users\\Nadeem Ahmad\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Nadeem\\UserManagement_API\\src\\WebAPI\\WebAPI.csproj",
+      "projectUniqueName": "D:\\Nadeem\\UserManagement_API\\src\\WebAPI\\WebAPI.csproj",
       "projectName": "WebAPI",
-      "projectPath": "E:\\Nadeem\\UserManagement_API\\src\\WebAPI\\WebAPI.csproj",
-      "packagesPath": "C:\\Users\\NADEEM\\.nuget\\packages\\",
-      "outputPath": "E:\\Nadeem\\UserManagement_API\\src\\WebAPI\\obj\\",
+      "projectPath": "D:\\Nadeem\\UserManagement_API\\src\\WebAPI\\WebAPI.csproj",
+      "packagesPath": "C:\\Users\\Nadeem Ahmad\\.nuget\\packages\\",
+      "outputPath": "D:\\Nadeem\\UserManagement_API\\src\\WebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "E:\\NuGet.Config",
-        "C:\\Users\\NADEEM\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Nadeem Ahmad\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -5275,6 +5274,7 @@
         "net9.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
@@ -5282,11 +5282,11 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "E:\\Nadeem\\UserManagement_API\\src\\Application\\Application.csproj": {
-              "projectPath": "E:\\Nadeem\\UserManagement_API\\src\\Application\\Application.csproj"
+            "D:\\Nadeem\\UserManagement_API\\src\\Application\\Application.csproj": {
+              "projectPath": "D:\\Nadeem\\UserManagement_API\\src\\Application\\Application.csproj"
             },
-            "E:\\Nadeem\\UserManagement_API\\src\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "E:\\Nadeem\\UserManagement_API\\src\\Infrastructure\\Infrastructure.csproj"
+            "D:\\Nadeem\\UserManagement_API\\src\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "D:\\Nadeem\\UserManagement_API\\src\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }
@@ -5301,7 +5301,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net9.0": {
@@ -5349,12 +5349,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.Net.Sdk.Compilers.Toolset",
-            "version": "[9.0.304, 9.0.304]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -5363,7 +5357,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

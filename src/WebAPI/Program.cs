@@ -71,7 +71,7 @@ builder.Services.AddCors(options =>
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<JwtTokenService>();
 builder.Services.AddScoped<PasswordHasher>();
-builder.Services.AddScoped<RoleSeeder>();
+builder.Services.AddScoped<Seeder>();
 builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
 builder.Services.AddScoped<IUserService, UserService>();
 
@@ -131,7 +131,7 @@ var app = builder.Build();
 // 13. Run database seeding at startup for roles, etc.
 using (var scope = app.Services.CreateScope())
 {
-    var seeder = scope.ServiceProvider.GetRequiredService<RoleSeeder>();
+    var seeder = scope.ServiceProvider.GetRequiredService<Seeder>();
     await seeder.SeedAsync();
 }
 

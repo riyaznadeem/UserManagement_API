@@ -1,6 +1,16 @@
 # UserManagement_API
 The User Management API allows applications and administrators to programmatically manage users within a system. It provides endpoints to perform CRUD operations on user accounts, handle authentication and authorization, manage roles and permissions, and support account lifecycle activities such as registration, password resets, and deactivation.
 
+Before Running the Project
+1. Update the connection string in appsettings.json.
+2. In Package Manager Console, select the Infrastructure project and run: "Update-Database"
+
+After Successful Build or Migration
+When Build or Update-Database runs successfully, three default users/roles are created automatically:
+1. UserName : 'admin' , Password : '#itadmin'
+2. UserName : 'user' , Password : '#itadmin'
+3. UserName : 'read' , Password : '#itadmin'
+
 User Management API Overview
 Architecture & Design Principles
 	•	Clean Architecture: Separation of concerns into layers:
