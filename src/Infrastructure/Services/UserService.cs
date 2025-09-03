@@ -12,20 +12,28 @@ namespace Infrastructure.Services
         private readonly IApplicationDbContext _context;
         private readonly ILogger<UserService> _logger;
         private readonly ICurrentUserService _currentUserService;
-        public UserService(IApplicationDbContext context, ILogger<UserService> logger, ICurrentUserService currentUserService)
+        private readonly PasswordHasher _passwordHasher;
+        public UserService(IApplicationDbContext context, ILogger<UserService> logger, ICurrentUserService currentUserService, PasswordHasher passwordHasher)
         {
             _context = context;
             _logger = logger;
             _currentUserService = currentUserService;
+            _passwordHasher = passwordHasher;
         }
 
         public async Task<UserDto> CreateUserAsync(RegisterRequest request)
         {
+            if (await _context.Users.AnyAsync(u => u.Username == request.Username))
+                throw new Exception("Username already exists");
+
+            _passwordHasher.CreateHash(request.Password, out var hash, out var salt);
             var user = new User
             {
                 Id = Guid.NewGuid(),
                 Username = request.Username,
                 DisplayName = request.DisplayName,
+                PasswordHash = hash,
+                PasswordSalt = salt,
                 RoleId = request.RoleId,
                 CreatedDate = DateTime.UtcNow,
                 CreatedBy = _currentUserService.UserId,
@@ -49,7 +57,7 @@ namespace Infrastructure.Services
 
             if (isAdmin && request.RoleId.HasValue)
             {
-                _logger.LogInformation("Role changed for User {UserId} by {PerformedBy} from {OldRole} to {NewRole}",
+                _logger.LogInformation("Role changed for User {UserId} from {OldRole} to {NewRole}",
                     userId, user.RoleId, request.RoleId.Value);
                 user.RoleId = request.RoleId.Value;
             }
@@ -68,7 +76,7 @@ namespace Infrastructure.Services
             if (user == null) throw new NotFoundException("User not found");
 
             user.DisplayName = request.DisplayName;
-           user.UpdatedDate  = DateTime.UtcNow;
+            user.UpdatedDate  = DateTime.UtcNow;
             user.UpdatedBy = userId.ToString();
 
             await _context.SaveChangesAsync();
@@ -76,15 +84,17 @@ namespace Infrastructure.Services
             return new UserDto(user);
         }
 
-        public async Task DeleteUserAsync(Guid userId)
+        public async Task DeleteUserAsync(Guid id)
         {
-            var user = await _context.Users.FindAsync(userId);
+            var user = await _context.Users.FirstOrDefaultAsync(f => f.Id == id);
             if (user == null) throw new NotFoundException("User not found");
 
-            _context.Users.Remove(user);
+            user.IsDeleted = true;
+            user.IsActive = false;
+
             await _context.SaveChangesAsync();
 
-            _logger.LogInformation("User {UserId} deleted by {PerformedBy}", userId);
+            _logger.LogError("User {UserId} logged in", id);
         }
 
         public async Task<UserDto> GetUserByIdAsync(Guid userId)

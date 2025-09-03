@@ -1,7 +1,7 @@
 ﻿using Application.Common.Interface;
-using Application.Common.Models;
 using Application.DTOs.Requests;
-using Application.Features.Users.Queries;
+using Application.Features.Users.Queries.GetRoleLookup;
+using Application.Features.Users.Queries.GetUserList;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -25,18 +25,18 @@ namespace WebAPI.Controller
         }
 
         [HttpPost("GetUserList")]
-        [Authorize(Roles = "Admin")]
+        [Authorize()]
         public async Task<IActionResult> GetUsers(GetUsersListQuery query)
         {
-            if (!User.IsInRole("Admin"))
-            {
-                return StatusCode(403, new
-                {
-                    status = 403,
-                    title = "Forbidden",
-                    message = "Only administrators can access this resource."
-                });
-            }
+            //if (!User.IsInRole("Admin"))
+            //{
+            //    return StatusCode(403, new
+            //    {
+            //        status = 403,
+            //        title = "Forbidden",
+            //        message = "Only administrators can access this resource."
+            //    });
+            //}
             var result = await _mediator.Send(query);
             return Ok(result);
         }
@@ -53,7 +53,7 @@ namespace WebAPI.Controller
             return CreatedAtAction(nameof(GetById), new { id = user.Id }, user);
         }
 
-        [HttpPut("{id}")]
+        [HttpPost("Update/{id}")]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(Guid id, [FromBody] UpdateUserRequest request)
         {
@@ -61,7 +61,7 @@ namespace WebAPI.Controller
             return Ok(user);
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("Delete/{id}")]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(Guid id)
         {
@@ -70,7 +70,7 @@ namespace WebAPI.Controller
         }
 
         // User updates own profile (no role change allowed)
-        [HttpPut("me")]
+        [HttpPost("me")]
         [Authorize]
         public async Task<IActionResult> UpdateOwnProfile([FromBody] UpdateOwnProfileRequest request)
         {
@@ -78,6 +78,14 @@ namespace WebAPI.Controller
             var user = await _userService.UpdateOwnProfileAsync(userId, request);
             return Ok(user);
         }
+        [HttpGet("GetRoleLookup")]
+        [Authorize]
+        public async Task<IActionResult> GetRoleLookup()
+        {
+            var result = await _mediator.Send(new GetRoleLookupQuery());
+            return Ok(result);
+        }
+
     }
 
 }

@@ -12,7 +12,7 @@ namespace Application.Common.Interface
         Task<UserDto> CreateUserAsync(RegisterRequest request);
         Task<UserDto> UpdateUserAsync(Guid userId, UpdateUserRequest request, bool isAdmin);
         Task<UserDto> UpdateOwnProfileAsync(Guid userId, UpdateOwnProfileRequest request);
-        Task DeleteUserAsync(Guid userId);
+        Task DeleteUserAsync(Guid id);
         Task<UserDto> GetUserByIdAsync(Guid userId);
         Task<List<UserDto>> GetAllUsersAsync();
     }

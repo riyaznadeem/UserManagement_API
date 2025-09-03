@@ -56,3 +56,4 @@ TestResults/
 ## Tools
 .env
 .env.*
+/src/.vs

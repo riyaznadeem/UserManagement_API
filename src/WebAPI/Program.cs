@@ -12,7 +12,8 @@ using System.Text;
 using WebAPI.Middleware;
 using MediatR;
 using Application.Common;
-using Application.Features.Users.Queries;
+using Microsoft.AspNetCore.Builder;
+using Application.Features.Users.Queries.GetUserList;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -53,6 +54,18 @@ builder.Services.AddHttpContextAccessor();
 
 // 7. Add controllers support (API endpoints)
 builder.Services.AddControllers();
+builder.Services.AddHealthChecks();
+
+// Define CORS policy
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngularApp", policy =>
+    {
+        policy.WithOrigins("http://localhost:4200") // ?? your Angular app URL
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
 
 // 8. Add scoped services for dependency injection
 builder.Services.AddScoped<IAuthService, AuthService>();
@@ -144,6 +157,7 @@ app.UseMiddleware<ExceptionMiddleware>();
 // 16. Add Swagger middleware (if not in development, optional)
 app.UseSwagger();
 app.UseSwaggerUI();
+app.UseCors("AllowAngularApp");
 
 // 17. Add Authentication and Authorization middlewares
 app.UseAuthentication();
@@ -151,6 +165,7 @@ app.UseAuthorization();
 
 // 18. Map API controllers endpoints
 app.MapControllers();
+app.MapHealthChecks("/health").WithName("HealthCheck");
 
 // 19. Enable localization middleware for culture-aware responses
 app.UseRequestLocalization();

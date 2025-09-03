@@ -65,9 +65,67 @@
   },
   {
     "ContainingType": "WebAPI.Controller.UsersController",
+    "Method": "Delete",
+    "RelativePath": "api/Users/Delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controller.UsersController",
+    "Method": "GetRoleLookup",
+    "RelativePath": "api/Users/GetRoleLookup",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controller.UsersController",
+    "Method": "GetUsers",
+    "RelativePath": "api/Users/GetUserList",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "query",
+        "Type": "Application.Features.Users.Queries.GetUserList.GetUsersListQuery",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controller.UsersController",
+    "Method": "UpdateOwnProfile",
+    "RelativePath": "api/Users/me",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Application.DTOs.Requests.UpdateOwnProfileRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controller.UsersController",
     "Method": "Update",
-    "RelativePath": "api/Users/{id}",
-    "HttpMethod": "PUT",
+    "RelativePath": "api/Users/Update/{id}",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -85,56 +143,8 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI.Controller.UsersController",
-    "Method": "Delete",
-    "RelativePath": "api/Users/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Guid",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "WebAPI.Controller.UsersController",
-    "Method": "GetUsers",
-    "RelativePath": "api/Users/GetUserList",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "query",
-        "Type": "Application.Features.Users.Queries.GetUsersListQuery",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "WebAPI.Controller.UsersController",
-    "Method": "UpdateOwnProfile",
-    "RelativePath": "api/Users/me",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "request",
-        "Type": "Application.DTOs.Requests.UpdateOwnProfileRequest",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "Program\u002B\u003C\u003Ec__DisplayClass0_0",
-    "Method": "\u003C\u003CMain\u003E$\u003Eb__7",
+    "Method": "\u003C\u003CMain\u003E$\u003Eb__8",
     "RelativePath": "weatherforecast",
     "HttpMethod": "GET",
     "IsController": false,

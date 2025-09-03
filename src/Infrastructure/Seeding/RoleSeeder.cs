@@ -1,10 +1,5 @@
 ﻿using Domain.Entities;
 using Infrastructure.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infrastructure.Seeding
 {
@@ -23,9 +18,9 @@ namespace Infrastructure.Seeding
             {
                 var roles = new List<Role>
             {
-                new Role { Id = Guid.NewGuid(), Name = "Admin", Description = "System administrator" },
-                new Role { Id = Guid.NewGuid(), Name = "User", Description = "Regular user" },
-                new Role { Id = Guid.NewGuid(), Name = "ReadOnlyUser", Description = "User Can Only View" }
+                new Role { Id = Guid.NewGuid(), Name = "Admin", Description = "System administrator" ,IsActive = true, IsDeleted = false},
+                new Role { Id = Guid.NewGuid(), Name = "User", Description = "Regular user" ,IsActive = true, IsDeleted = false },
+                new Role { Id = Guid.NewGuid(), Name = "ReadOnlyUser", Description = "User Can Only View"  ,IsActive = true, IsDeleted = false}
             };
 
                 _context.Roles.AddRange(roles);
