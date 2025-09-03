@@ -1,0 +1,12 @@
+E:\Nadeem\UserManagement_API\src\Domain\bin\Debug\net9.0\Domain.deps.json
+E:\Nadeem\UserManagement_API\src\Domain\bin\Debug\net9.0\Domain.dll
+E:\Nadeem\UserManagement_API\src\Domain\bin\Debug\net9.0\Domain.pdb
+E:\Nadeem\UserManagement_API\src\Domain\obj\Debug\net9.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+E:\Nadeem\UserManagement_API\src\Domain\obj\Debug\net9.0\Domain.AssemblyInfoInputs.cache
+E:\Nadeem\UserManagement_API\src\Domain\obj\Debug\net9.0\Domain.AssemblyInfo.cs
+E:\Nadeem\UserManagement_API\src\Domain\obj\Debug\net9.0\Domain.csproj.CoreCompileInputs.cache
+E:\Nadeem\UserManagement_API\src\Domain\obj\Debug\net9.0\Domain.sourcelink.json
+E:\Nadeem\UserManagement_API\src\Domain\obj\Debug\net9.0\Domain.dll
+E:\Nadeem\UserManagement_API\src\Domain\obj\Debug\net9.0\refint\Domain.dll
+E:\Nadeem\UserManagement_API\src\Domain\obj\Debug\net9.0\Domain.pdb
+E:\Nadeem\UserManagement_API\src\Domain\obj\Debug\net9.0\ref\Domain.dll
