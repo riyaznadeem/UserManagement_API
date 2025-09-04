@@ -1,5 +1,5 @@
 ﻿using Application.Common.Interface;
-using Application.Features.Users.Queries.GetRoleLookup;
+using Application.Features.Roles.Queries.GetRoleLookup;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

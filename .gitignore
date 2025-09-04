@@ -57,3 +57,5 @@ TestResults/
 .env
 .env.*
 /src/.vs
+/.vs
+.vs

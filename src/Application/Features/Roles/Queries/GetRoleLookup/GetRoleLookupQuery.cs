@@ -2,7 +2,7 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace Application.Features.Users.Queries.GetRoleLookup;
+namespace Application.Features.Roles.Queries.GetRoleLookup;
 
 public class GetRoleLookupQuery : IRequest<List<GetRoleLookupViewModel>>;
 public class GetRoleLookupHandler : IRequestHandler<GetRoleLookupQuery, List<GetRoleLookupViewModel>>

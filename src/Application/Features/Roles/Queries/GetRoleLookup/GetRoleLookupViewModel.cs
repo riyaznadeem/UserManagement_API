@@ -1,4 +1,4 @@
-﻿namespace Application.Features.Users.Queries.GetRoleLookup;
+﻿namespace Application.Features.Roles.Queries.GetRoleLookup;
 
 public class GetRoleLookupViewModel
 {
