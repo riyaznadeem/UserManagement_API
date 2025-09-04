@@ -365,3 +365,12 @@ E:\Nadeem\UserManagement_API\src\WebAPI\obj\Debug\net9.0\refint\WebAPI.dll
 E:\Nadeem\UserManagement_API\src\WebAPI\obj\Debug\net9.0\WebAPI.pdb
 E:\Nadeem\UserManagement_API\src\WebAPI\obj\Debug\net9.0\WebAPI.genruntimeconfig.cache
 E:\Nadeem\UserManagement_API\src\WebAPI\obj\Debug\net9.0\ref\WebAPI.dll
+E:\Nadeem\UserManagement_API\src\WebAPI\bin\Debug\net9.0\Serilog.dll
+E:\Nadeem\UserManagement_API\src\WebAPI\bin\Debug\net9.0\Serilog.Extensions.Logging.dll
+E:\Nadeem\UserManagement_API\src\WebAPI\bin\Debug\net9.0\Serilog.Sinks.File.dll
+E:\Nadeem\UserManagement_API\src\WebAPI\bin\Debug\net9.0\Serilog.AspNetCore.dll
+E:\Nadeem\UserManagement_API\src\WebAPI\bin\Debug\net9.0\Serilog.Extensions.Hosting.dll
+E:\Nadeem\UserManagement_API\src\WebAPI\bin\Debug\net9.0\Serilog.Formatting.Compact.dll
+E:\Nadeem\UserManagement_API\src\WebAPI\bin\Debug\net9.0\Serilog.Settings.Configuration.dll
+E:\Nadeem\UserManagement_API\src\WebAPI\bin\Debug\net9.0\Serilog.Sinks.Console.dll
+E:\Nadeem\UserManagement_API\src\WebAPI\bin\Debug\net9.0\Serilog.Sinks.Debug.dll

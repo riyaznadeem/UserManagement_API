@@ -4,48 +4,58 @@ using Application.DTOs.Requests;
 using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Serilog;
 
 namespace Infrastructure.Services
 {
     public class UserService : IUserService
     {
         private readonly IApplicationDbContext _context;
-        private readonly ILogger<UserService> _logger;
         private readonly ICurrentUserService _currentUserService;
         private readonly PasswordHasher _passwordHasher;
-        public UserService(IApplicationDbContext context, ILogger<UserService> logger, ICurrentUserService currentUserService, PasswordHasher passwordHasher)
+        public UserService(IApplicationDbContext context, ICurrentUserService currentUserService, PasswordHasher passwordHasher)
         {
             _context = context;
-            _logger = logger;
             _currentUserService = currentUserService;
             _passwordHasher = passwordHasher;
         }
 
         public async Task<UserDto> CreateUserAsync(RegisterRequest request)
         {
-            if (await _context.Users.AnyAsync(u => u.Username == request.Username))
-                throw new Exception("Username already exists");
-
-            _passwordHasher.CreateHash(request.Password, out var hash, out var salt);
-            var user = new User
+            try
             {
-                Id = Guid.NewGuid(),
-                Username = request.Username,
-                DisplayName = request.DisplayName,
-                PasswordHash = hash,
-                PasswordSalt = salt,
-                RoleId = request.RoleId,
-                CreatedDate = DateTime.UtcNow,
-                CreatedBy = _currentUserService.UserId,
-            };
-            // Password hashing logic here (omitted for brevity)
+                if (await _context.Users.AnyAsync(u => u.Username == request.Username))
+                {
+                    Log.Error("Username already exists");
+                    throw new Exception("Username already exists");
+                }
 
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
+                _passwordHasher.CreateHash(request.Password, out var hash, out var salt);
+                var user = new User
+                {
+                    Id = Guid.NewGuid(),
+                    Username = request.Username,
+                    DisplayName = request.DisplayName,
+                    PasswordHash = hash,
+                    PasswordSalt = salt,
+                    RoleId = request.RoleId,
+                    CreatedDate = DateTime.UtcNow,
+                    CreatedBy = _currentUserService.UserId,
+                };
 
-            _logger.LogInformation("User {UserId}", user.Id);
+                _context.Users.Add(user);
+                await _context.SaveChangesAsync();
 
-            return new UserDto(user);
+                Log.Information($"User {user.Username}");
+
+                return new UserDto(user);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "An error occurred while creating user '{Username}'", request.Username);
+                throw;
+            }
+
         }
 
         public async Task<UserDto> UpdateUserAsync(Guid userId, UpdateUserRequest request, bool isAdmin)
@@ -57,7 +67,7 @@ namespace Infrastructure.Services
 
             if (isAdmin && request.RoleId.HasValue)
             {
-                _logger.LogInformation("Role changed for User {UserId} from {OldRole} to {NewRole}",
+                Log.Information("Role changed for User {UserId} from {OldRole} to {NewRole}",
                     userId, user.RoleId, request.RoleId.Value);
                 user.RoleId = request.RoleId.Value;
             }
@@ -76,7 +86,7 @@ namespace Infrastructure.Services
             if (user == null) throw new NotFoundException("User not found");
 
             user.DisplayName = request.DisplayName;
-            user.UpdatedDate  = DateTime.UtcNow;
+            user.UpdatedDate = DateTime.UtcNow;
             user.UpdatedBy = userId.ToString();
 
             await _context.SaveChangesAsync();
@@ -94,7 +104,7 @@ namespace Infrastructure.Services
 
             await _context.SaveChangesAsync();
 
-            _logger.LogError("User {UserId} logged in", id);
+            Log.Error("User {UserId} logged in", id);
         }
 
         public async Task<UserDto> GetUserByIdAsync(Guid userId)

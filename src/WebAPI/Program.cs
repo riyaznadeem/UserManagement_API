@@ -1,19 +1,18 @@
-using Application.Common.Configurations;
+﻿using Application.Common.Configurations;
 using Application.Common.Interface;
+using Application.Features.Users.Queries.GetUserList;
 using Infrastructure.Data;
 using Infrastructure.Seeding;
 using Infrastructure.Services;
+using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Serilog;
 using System.Globalization;
 using System.Text;
 using WebAPI.Middleware;
-using MediatR;
-using Application.Common;
-using Microsoft.AspNetCore.Builder;
-using Application.Features.Users.Queries.GetUserList;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -124,6 +123,20 @@ builder.Services.AddSwaggerGen(options =>
         }
     });
 });
+
+#region S E R I L O G
+
+// -------------------- 🧾 Serilog Logging --------------------
+Log.Logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(builder.Configuration)
+    .Enrich.FromLogContext()
+    .WriteTo.Console()
+    .WriteTo.File("Logs/log-.txt", rollingInterval: RollingInterval.Day)
+    .CreateLogger();
+
+builder.Host.UseSerilog();
+
+#endregion
 
 // 12. Build the app
 var app = builder.Build();

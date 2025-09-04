@@ -1,6 +1,5 @@
 ﻿using Application.Common.Interface;
 using Domain.Entities;
-using Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Data

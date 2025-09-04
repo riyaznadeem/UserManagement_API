@@ -32,6 +32,26 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "WebAPI.Controller.DashboardController",
+    "Method": "GetDashboard",
+    "RelativePath": "api/Dashboard/GetDashboard",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "Application.Features.Dashboard.Queries.GetDashboard.GetDashboardViewModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "WebAPI.Controller.RoleController",
     "Method": "GetRoleLookup",
     "RelativePath": "api/Role/GetRoleLookup",
@@ -39,7 +59,17 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Application.Features.Roles.Queries.GetRoleLookup.GetRoleLookupViewModel, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "WebAPI.Controller.UsersController",
