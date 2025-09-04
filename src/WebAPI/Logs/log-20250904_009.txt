@@ -1,0 +1,31 @@
+2025-09-04 17:03:15.645 +04:00 [INF] User itadmin
+2025-09-04 17:03:23.423 +04:00 [INF] Role changed for User "faeafa1c-f72f-4e2f-9f2a-099887d579b7" from "9b481398-e2cf-4263-9d43-5ac45fe76ce2" to "9b481398-e2cf-4263-9d43-5ac45fe76ce2"
+2025-09-04 17:03:34.621 +04:00 [INF] Role changed for User "faeafa1c-f72f-4e2f-9f2a-099887d579b7" from "9b481398-e2cf-4263-9d43-5ac45fe76ce2" to "9b481398-e2cf-4263-9d43-5ac45fe76ce2"
+2025-09-04 17:03:56.246 +04:00 [INF] User itadmin 1
+2025-09-04 17:04:18.793 +04:00 [INF] User itadmin1
+2025-09-04 17:04:42.888 +04:00 [ERR] Username already exists
+2025-09-04 17:04:42.962 +04:00 [ERR] An error occurred while creating user 'itadmin1'
+System.Exception: Username already exists
+   at Infrastructure.Services.UserService.CreateUserAsync(RegisterRequest request) in D:\Nadeem\UserManagement_API\src\Application\Services\UserService.cs:line 30
+2025-09-04 17:04:45.511 +04:00 [ERR] Unhandled Exception
+System.Exception: Username already exists
+   at Infrastructure.Services.UserService.CreateUserAsync(RegisterRequest request) in D:\Nadeem\UserManagement_API\src\Application\Services\UserService.cs:line 30
+   at WebAPI.Controller.UsersController.Create(RegisterRequest request) in D:\Nadeem\UserManagement_API\src\WebAPI\Controller\UsersController.cs:line 51
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at WebAPI.Middleware.ExceptionMiddleware.InvokeAsync(HttpContext context) in D:\Nadeem\UserManagement_API\src\WebAPI\Middleware\ExceptionMiddleware.cs:line 23
+2025-09-04 17:04:58.567 +04:00 [ERR] User "f681d6b9-52a2-4c3e-82be-5ed62b3ac325" logged in
+2025-09-04 17:05:06.283 +04:00 [ERR] User "c6bac3c8-007e-4992-b25a-fab64b9b2943" logged in
+2025-09-04 17:05:24.203 +04:00 [INF] User itadmin1

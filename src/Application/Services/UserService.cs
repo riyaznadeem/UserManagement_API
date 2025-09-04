@@ -24,7 +24,7 @@ namespace Infrastructure.Services
         {
             try
             {
-                if (await _context.Users.AnyAsync(u => u.Username == request.Username))
+                if (await _context.Users.AnyAsync(u => u.Username == request.Username && !u.IsDeleted))
                 {
                     Log.Error("Username already exists");
                     throw new Exception("Username already exists");
@@ -64,6 +64,7 @@ namespace Infrastructure.Services
             if (user == null) throw new NotFoundException("User not found");
 
             user.DisplayName = request.DisplayName;
+            user.Username = request.UserName;
 
             if (isAdmin && request.RoleId.HasValue)
             {

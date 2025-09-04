@@ -374,3 +374,12 @@ E:\Nadeem\UserManagement_API\src\WebAPI\bin\Debug\net9.0\Serilog.Formatting.Comp
 E:\Nadeem\UserManagement_API\src\WebAPI\bin\Debug\net9.0\Serilog.Settings.Configuration.dll
 E:\Nadeem\UserManagement_API\src\WebAPI\bin\Debug\net9.0\Serilog.Sinks.Console.dll
 E:\Nadeem\UserManagement_API\src\WebAPI\bin\Debug\net9.0\Serilog.Sinks.Debug.dll
+D:\Nadeem\UserManagement_API\src\WebAPI\bin\Debug\net9.0\Serilog.dll
+D:\Nadeem\UserManagement_API\src\WebAPI\bin\Debug\net9.0\Serilog.AspNetCore.dll
+D:\Nadeem\UserManagement_API\src\WebAPI\bin\Debug\net9.0\Serilog.Extensions.Hosting.dll
+D:\Nadeem\UserManagement_API\src\WebAPI\bin\Debug\net9.0\Serilog.Extensions.Logging.dll
+D:\Nadeem\UserManagement_API\src\WebAPI\bin\Debug\net9.0\Serilog.Formatting.Compact.dll
+D:\Nadeem\UserManagement_API\src\WebAPI\bin\Debug\net9.0\Serilog.Settings.Configuration.dll
+D:\Nadeem\UserManagement_API\src\WebAPI\bin\Debug\net9.0\Serilog.Sinks.Console.dll
+D:\Nadeem\UserManagement_API\src\WebAPI\bin\Debug\net9.0\Serilog.Sinks.Debug.dll
+D:\Nadeem\UserManagement_API\src\WebAPI\bin\Debug\net9.0\Serilog.Sinks.File.dll

@@ -1,22 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\Nadeem\\UserManagement_API\\src\\",
+  "WorkspaceRootPath": "D:\\Nadeem\\UserManagement_API\\src\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{77C67A8F-D348-48A8-A68B-3D535EC8B168}|Application\\Application.csproj|e:\\nadeem\\usermanagement_api\\src\\application\\features\\dashboard\\queries\\getdashboard\\getdashboardquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{77C67A8F-D348-48A8-A68B-3D535EC8B168}|Application\\Application.csproj|solutionrelative:application\\features\\dashboard\\queries\\getdashboard\\getdashboardquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{77C67A8F-D348-48A8-A68B-3D535EC8B168}|Application\\Application.csproj|d:\\nadeem\\usermanagement_api\\src\\application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77C67A8F-D348-48A8-A68B-3D535EC8B168}|Application\\Application.csproj|solutionrelative:application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1A8FCC79-CE09-4CE0-935B-63721D62371D}|WebAPI\\WebAPI.csproj|e:\\nadeem\\usermanagement_api\\src\\webapi\\controller\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1A8FCC79-CE09-4CE0-935B-63721D62371D}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\controller\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1A8FCC79-CE09-4CE0-935B-63721D62371D}|WebAPI\\WebAPI.csproj|d:\\nadeem\\usermanagement_api\\src\\webapi\\controller\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A8FCC79-CE09-4CE0-935B-63721D62371D}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\controller\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1A8FCC79-CE09-4CE0-935B-63721D62371D}|WebAPI\\WebAPI.csproj|e:\\nadeem\\usermanagement_api\\src\\webapi\\controller\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1A8FCC79-CE09-4CE0-935B-63721D62371D}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\controller\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{77C67A8F-D348-48A8-A68B-3D535EC8B168}|Application\\Application.csproj|d:\\nadeem\\usermanagement_api\\src\\application\\dtos\\requests\\registerrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77C67A8F-D348-48A8-A68B-3D535EC8B168}|Application\\Application.csproj|solutionrelative:application\\dtos\\requests\\registerrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{77C67A8F-D348-48A8-A68B-3D535EC8B168}|Application\\Application.csproj|e:\\nadeem\\usermanagement_api\\src\\application\\features\\dashboard\\queries\\getdashboard\\getdashboardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{77C67A8F-D348-48A8-A68B-3D535EC8B168}|Application\\Application.csproj|solutionrelative:application\\features\\dashboard\\queries\\getdashboard\\getdashboardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1A8FCC79-CE09-4CE0-935B-63721D62371D}|WebAPI\\WebAPI.csproj|d:\\nadeem\\usermanagement_api\\src\\webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{1A8FCC79-CE09-4CE0-935B-63721D62371D}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,106 +26,62 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 15,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:137:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:138:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:139:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:140:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:141:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:133:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:134:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:135:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:136:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "RoleController.cs",
-              "DocumentMoniker": "E:\\Nadeem\\UserManagement_API\\src\\WebAPI\\Controller\\RoleController.cs",
-              "RelativeDocumentMoniker": "WebAPI\\Controller\\RoleController.cs",
-              "ToolTip": "E:\\Nadeem\\UserManagement_API\\src\\WebAPI\\Controller\\RoleController.cs",
-              "RelativeToolTip": "WebAPI\\Controller\\RoleController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA8AAAAAAAAAA==",
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "D:\\Nadeem\\UserManagement_API\\src\\WebAPI\\Controller\\UsersController.cs",
+              "RelativeDocumentMoniker": "WebAPI\\Controller\\UsersController.cs",
+              "ToolTip": "D:\\Nadeem\\UserManagement_API\\src\\WebAPI\\Controller\\UsersController.cs",
+              "RelativeToolTip": "WebAPI\\Controller\\UsersController.cs",
+              "ViewState": "AgIAADoAAAAAAAAAAAAcwEsAAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T10:13:38.565Z",
+              "WhenOpened": "2025-09-04T12:48:48.62Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "DashboardController.cs",
-              "DocumentMoniker": "E:\\Nadeem\\UserManagement_API\\src\\WebAPI\\Controller\\DashboardController.cs",
-              "RelativeDocumentMoniker": "WebAPI\\Controller\\DashboardController.cs",
-              "ToolTip": "E:\\Nadeem\\UserManagement_API\\src\\WebAPI\\Controller\\DashboardController.cs",
-              "RelativeToolTip": "WebAPI\\Controller\\DashboardController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAADAAAAAAAAAA==",
+              "Title": "RegisterRequest.cs",
+              "DocumentMoniker": "D:\\Nadeem\\UserManagement_API\\src\\Application\\DTOs\\Requests\\RegisterRequest.cs",
+              "RelativeDocumentMoniker": "Application\\DTOs\\Requests\\RegisterRequest.cs",
+              "ToolTip": "D:\\Nadeem\\UserManagement_API\\src\\Application\\DTOs\\Requests\\RegisterRequest.cs",
+              "RelativeToolTip": "Application\\DTOs\\Requests\\RegisterRequest.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAApwCgAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T10:13:36.746Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "GetDashboardViewModel.cs",
-              "DocumentMoniker": "E:\\Nadeem\\UserManagement_API\\src\\Application\\Features\\Dashboard\\Queries\\GetDashboard\\GetDashboardViewModel.cs",
-              "RelativeDocumentMoniker": "Application\\Features\\Dashboard\\Queries\\GetDashboard\\GetDashboardViewModel.cs",
-              "ToolTip": "E:\\Nadeem\\UserManagement_API\\src\\Application\\Features\\Dashboard\\Queries\\GetDashboard\\GetDashboardViewModel.cs",
-              "RelativeToolTip": "Application\\Features\\Dashboard\\Queries\\GetDashboard\\GetDashboardViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T10:08:02.683Z",
+              "WhenOpened": "2025-09-04T12:32:10.603Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "GetDashboardQuery.cs",
-              "DocumentMoniker": "E:\\Nadeem\\UserManagement_API\\src\\Application\\Features\\Dashboard\\Queries\\GetDashboard\\GetDashboardQuery.cs",
-              "RelativeDocumentMoniker": "Application\\Features\\Dashboard\\Queries\\GetDashboard\\GetDashboardQuery.cs",
-              "ToolTip": "E:\\Nadeem\\UserManagement_API\\src\\Application\\Features\\Dashboard\\Queries\\GetDashboard\\GetDashboardQuery.cs",
-              "RelativeToolTip": "Application\\Features\\Dashboard\\Queries\\GetDashboard\\GetDashboardQuery.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Title": "UserService.cs",
+              "DocumentMoniker": "D:\\Nadeem\\UserManagement_API\\src\\Application\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "Application\\Services\\UserService.cs",
+              "ToolTip": "D:\\Nadeem\\UserManagement_API\\src\\Application\\Services\\UserService.cs",
+              "RelativeToolTip": "Application\\Services\\UserService.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAnwCAAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T10:07:28.214Z",
+              "WhenOpened": "2025-09-04T12:31:35.693Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Nadeem\\UserManagement_API\\src\\WebAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "WebAPI\\appsettings.json",
+              "ToolTip": "D:\\Nadeem\\UserManagement_API\\src\\WebAPI\\appsettings.json",
+              "RelativeToolTip": "WebAPI\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-04T11:59:42.079Z",
               "EditorCaption": ""
             }
           ]
