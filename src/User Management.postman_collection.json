@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "622493f3-9e68-4864-a91e-7fb6aa292616",
+		"name": "User Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "32876661"
+	},
+	"item": [
+		{
+			"name": "Authenticate",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"itadmin\",\r\n  \"password\": \"#itadmin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5077/api/Auth/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"adminuser\",\r\n  \"displayName\": \"Admin User\",\r\n  \"password\": \"#adminuser\",\r\n  \"roleId\": \"AA35F7BB-07FC-43FC-8E6E-D452A4383379\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5077/api/Auth/register"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "GetUserList",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6Ijc2ZDQ5ZmJlLWM2YTItNDI2Ny04NTBmLTgwODcxY2FjNTNkYyIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJpdGFkbWluIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE3NTY4MDIzNzQsImlzcyI6IlVzZXJNYW5hZ2VtZW50X0lzc3VlciIsImF1ZCI6IlVzZXJNYW5hZ2VtZW50X0F1ZGllbmNlIn0.OiG1488qmrnkM59IsM7G2sVU3hrmnKQjYTxjSd7Rt1jC4Ux3CD5WbmGbKeQ0dGN-BFjEP0gqL0YheIA7dw-8rA"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"pageNumber\": 1,\r\n  \"pageSize\": 20,\r\n  \"userNameOrDisplayName\": null,\r\n  \"role\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5077/api/Users/GetUserList"
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "http://localhost:5077/api/user/Create"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "http://localhost:5077/api/user/Update/AA35F7BB-07FC-43FC-8E6E-D452A4383379"
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:5077/api/user/Delete/AA35F7BB-07FC-43FC-8E6E-D452A4383379"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dashboard",
+			"item": [
+				{
+					"name": "GetDashboard",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5077/api/Dashboard/GetDashboard"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Role",
+			"item": [
+				{
+					"name": "GetRoleLookup",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5077/api/Role/GetRoleLookup"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
