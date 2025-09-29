@@ -166,6 +166,7 @@ app.UseHttpsRedirection();
 
 // 15. Use custom global exception handling middleware
 app.UseMiddleware<ExceptionMiddleware>();
+app.UseMiddleware<ErrorHandlerMiddleware>();
 
 // 16. Add Swagger middleware (if not in development, optional)
 app.UseSwagger();
