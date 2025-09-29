@@ -73,8 +73,7 @@ namespace WebAPI.Controller
         [Authorize]
         public async Task<IActionResult> UpdateOwnProfile([FromBody] UpdateOwnProfileRequest request)
         {
-            var userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
-            var user = await _userService.UpdateOwnProfileAsync(userId, request);
+            var user = await _userService.UpdateOwnProfileAsync(request.Id, request);
             return Ok(user);
         }
        

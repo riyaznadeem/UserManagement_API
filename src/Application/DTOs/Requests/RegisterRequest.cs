@@ -27,6 +27,8 @@ namespace Application.DTOs.Requests
     public class UpdateUserRequest
     {
         [Required]
+        public string UserName { get; set; }
+        [Required]
         public string DisplayName { get; set; }
 
         public Guid? RoleId { get; set; } // Admin only can update this
@@ -34,6 +36,7 @@ namespace Application.DTOs.Requests
 
     public class UpdateOwnProfileRequest
     {
+        public Guid Id { get; set; }
         [Required]
         public string DisplayName { get; set; }
     }

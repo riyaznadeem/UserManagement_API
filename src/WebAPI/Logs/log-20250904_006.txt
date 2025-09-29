@@ -1,0 +1,26 @@
+2025-09-04 16:39:43.406 +04:00 [INF] User abcd
+2025-09-04 16:39:48.343 +04:00 [ERR] User "ea85e8e2-a842-42da-8721-e15092d78938" logged in
+2025-09-04 16:39:57.518 +04:00 [INF] User abcd
+2025-09-04 16:40:02.477 +04:00 [ERR] User "18e97f60-c839-4d1a-87c9-0ad48360eb6d" logged in
+2025-09-04 16:45:38.435 +04:00 [INF] User itadmin
+2025-09-04 16:46:11.755 +04:00 [INF] User user1
+2025-09-04 16:46:49.947 +04:00 [ERR] User "bbdbb530-d1ac-4380-a031-c3a1211db705" logged in
+[16:50:39 ERR] Unhandled Exception
+Application.Common.NotFoundException: User not found
+   at Infrastructure.Services.UserService.UpdateOwnProfileAsync(Guid userId, UpdateOwnProfileRequest request) in D:\Nadeem\UserManagement_API\src\Application\Services\UserService.cs:line 87
+   at WebAPI.Controller.UsersController.UpdateOwnProfile(UpdateOwnProfileRequest request) in D:\Nadeem\UserManagement_API\src\WebAPI\Controller\UsersController.cs:line 76
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at WebAPI.Middleware.ExceptionMiddleware.InvokeAsync(HttpContext context) in D:\Nadeem\UserManagement_API\src\WebAPI\Middleware\ExceptionMiddleware.cs:line 23

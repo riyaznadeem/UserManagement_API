@@ -1,73 +1,10 @@
-2025-09-04 13:53:14.291 +04:00 [ERR] Failed executing DbCommand (53ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000), @p4='?' (DbType = Boolean), @p5='?' (DbType = Boolean), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (DbType = DateTime2), @p9='?' (DbType = Guid), @p10='?' (Size = 4000), @p11='?' (DbType = DateTime2), @p12='?' (Size = 4000), @p13='?' (DbType = Boolean), @p14='?' (DbType = Boolean), @p15='?' (Size = 4000), @p16='?' (Size = 4000), @p17='?' (DbType = DateTime2), @p18='?' (DbType = Guid), @p19='?' (Size = 4000), @p20='?' (DbType = DateTime2), @p21='?' (Size = 4000), @p22='?' (DbType = Boolean), @p23='?' (DbType = Boolean), @p24='?' (Size = 4000), @p25='?' (Size = 4000), @p26='?' (DbType = DateTime2), @p27='?' (DbType = Guid), @p28='?' (Size = 4000), @p29='?' (DbType = DateTime2), @p30='?' (Size = 4000), @p31='?' (DbType = Boolean), @p32='?' (DbType = Boolean), @p33='?' (Size = 8000) (DbType = Binary), @p34='?' (Size = 8000) (DbType = Binary), @p35='?' (DbType = Guid), @p36='?' (Size = 4000), @p37='?' (DbType = DateTime2), @p38='?' (Size = 4000), @p39='?' (DbType = Guid), @p40='?' (Size = 4000), @p41='?' (DbType = DateTime2), @p42='?' (Size = 4000), @p43='?' (DbType = Boolean), @p44='?' (DbType = Boolean), @p45='?' (Size = 8000) (DbType = Binary), @p46='?' (Size = 8000) (DbType = Binary), @p47='?' (DbType = Guid), @p48='?' (Size = 4000), @p49='?' (DbType = DateTime2), @p50='?' (Size = 4000), @p51='?' (DbType = Guid), @p52='?' (Size = 4000), @p53='?' (DbType = DateTime2), @p54='?' (Size = 4000), @p55='?' (DbType = Boolean), @p56='?' (DbType = Boolean), @p57='?' (Size = 8000) (DbType = Binary), @p58='?' (Size = 8000) (DbType = Binary), @p59='?' (DbType = Guid), @p60='?' (Size = 4000), @p61='?' (DbType = DateTime2), @p62='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
-SET NOCOUNT ON;
-INSERT INTO [Roles] ([Id], [CreatedBy], [CreatedDate], [Description], [IsActive], [IsDeleted], [Name], [UpdatedBy], [UpdatedDate])
-VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8),
-(@p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17),
-(@p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25, @p26);
-INSERT INTO [Users] ([Id], [CreatedBy], [CreatedDate], [DisplayName], [IsActive], [IsDeleted], [PasswordHash], [PasswordSalt], [RoleId], [UpdatedBy], [UpdatedDate], [Username])
-VALUES (@p27, @p28, @p29, @p30, @p31, @p32, @p33, @p34, @p35, @p36, @p37, @p38),
-(@p39, @p40, @p41, @p42, @p43, @p44, @p45, @p46, @p47, @p48, @p49, @p50),
-(@p51, @p52, @p53, @p54, @p55, @p56, @p57, @p58, @p59, @p60, @p61, @p62);
-2025-09-04 13:53:14.358 +04:00 [ERR] An exception occurred in the database while saving changes for context type 'Infrastructure.Data.ApplicationDbContext'.
-Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
- ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Violation of PRIMARY KEY constraint 'PK_Roles'. Cannot insert duplicate key in object 'dbo.Roles'. The duplicate key value is (1eabba0e-a41a-4d8f-8813-eff86fdac744).
-The statement has been terminated.
-   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
-   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
-   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
---- End of stack trace from previous location ---
-   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
-   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
---- End of stack trace from previous location ---
-   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
-ClientConnectionId:d6f08e21-934d-4d7b-867a-b3e8a809588d
-Error Number:2627,State:1,Class:14
-   --- End of inner exception stack trace ---
-   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
-Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
- ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Violation of PRIMARY KEY constraint 'PK_Roles'. Cannot insert duplicate key in object 'dbo.Roles'. The duplicate key value is (1eabba0e-a41a-4d8f-8813-eff86fdac744).
-The statement has been terminated.
-   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
-   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
-   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
---- End of stack trace from previous location ---
-   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
-   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
---- End of stack trace from previous location ---
-   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
-ClientConnectionId:d6f08e21-934d-4d7b-867a-b3e8a809588d
-Error Number:2627,State:1,Class:14
-   --- End of inner exception stack trace ---
-   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
-[16:08:55 INF] Role changed for User "3a1c86ca-4b39-4484-b6f9-48efccfbfeb8" from "9b481398-e2cf-4263-9d43-5ac45fe76ce2" to "9b481398-e2cf-4263-9d43-5ac45fe76ce2"
-[16:09:16 ERR] User "3a1c86ca-4b39-4484-b6f9-48efccfbfeb8" logged in
-[16:09:31 ERR] Username already exists
-[16:09:32 ERR] An error occurred while creating user 'itadmin'
+2025-09-04 16:08:55.697 +04:00 [INF] Role changed for User "3a1c86ca-4b39-4484-b6f9-48efccfbfeb8" from "9b481398-e2cf-4263-9d43-5ac45fe76ce2" to "9b481398-e2cf-4263-9d43-5ac45fe76ce2"
+2025-09-04 16:09:16.387 +04:00 [ERR] User "3a1c86ca-4b39-4484-b6f9-48efccfbfeb8" logged in
+2025-09-04 16:09:31.979 +04:00 [ERR] Username already exists
+2025-09-04 16:09:32.037 +04:00 [ERR] An error occurred while creating user 'itadmin'
 System.Exception: Username already exists
    at Infrastructure.Services.UserService.CreateUserAsync(RegisterRequest request) in D:\Nadeem\UserManagement_API\src\Application\Services\UserService.cs:line 30
-[16:09:40 ERR] Unhandled Exception
+2025-09-04 16:09:40.864 +04:00 [ERR] Unhandled Exception
 System.Exception: Username already exists
    at Infrastructure.Services.UserService.CreateUserAsync(RegisterRequest request) in D:\Nadeem\UserManagement_API\src\Application\Services\UserService.cs:line 30
    at WebAPI.Controller.UsersController.Create(RegisterRequest request) in D:\Nadeem\UserManagement_API\src\WebAPI\Controller\UsersController.cs:line 51
@@ -86,36 +23,11 @@ System.Exception: Username already exists
    at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
    at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
    at WebAPI.Middleware.ExceptionMiddleware.InvokeAsync(HttpContext context) in D:\Nadeem\UserManagement_API\src\WebAPI\Middleware\ExceptionMiddleware.cs:line 23
-[16:11:46 ERR] Username already exists
-[16:11:46 ERR] An error occurred while creating user 'itadmin'
+2025-09-04 16:11:46.514 +04:00 [ERR] Username already exists
+2025-09-04 16:11:46.533 +04:00 [ERR] An error occurred while creating user 'itadmin'
 System.Exception: Username already exists
    at Infrastructure.Services.UserService.CreateUserAsync(RegisterRequest request) in D:\Nadeem\UserManagement_API\src\Application\Services\UserService.cs:line 30
-[16:11:48 ERR] Unhandled Exception
-System.Exception: Username already exists
-   at Infrastructure.Services.UserService.CreateUserAsync(RegisterRequest request) in D:\Nadeem\UserManagement_API\src\Application\Services\UserService.cs:line 30
-   at WebAPI.Controller.UsersController.Create(RegisterRequest request) in D:\Nadeem\UserManagement_API\src\WebAPI\Controller\UsersController.cs:line 51
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
-   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
-   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
-   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
-   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
-   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
-   at WebAPI.Middleware.ExceptionMiddleware.InvokeAsync(HttpContext context) in D:\Nadeem\UserManagement_API\src\WebAPI\Middleware\ExceptionMiddleware.cs:line 23
-[16:11:58 INF] User itadmin1
-[16:12:13 ERR] User "6c33b401-24ad-460c-aacb-400230ed5ae0" logged in
-[16:30:29 ERR] Username already exists
-[16:30:29 ERR] An error occurred while creating user 'itadmin'
-System.Exception: Username already exists
-   at Infrastructure.Services.UserService.CreateUserAsync(RegisterRequest request) in D:\Nadeem\UserManagement_API\src\Application\Services\UserService.cs:line 30
-[16:30:32 ERR] Unhandled Exception
+2025-09-04 16:11:48.966 +04:00 [ERR] Unhandled Exception
 System.Exception: Username already exists
    at Infrastructure.Services.UserService.CreateUserAsync(RegisterRequest request) in D:\Nadeem\UserManagement_API\src\Application\Services\UserService.cs:line 30
    at WebAPI.Controller.UsersController.Create(RegisterRequest request) in D:\Nadeem\UserManagement_API\src\WebAPI\Controller\UsersController.cs:line 51
@@ -134,11 +46,13 @@ System.Exception: Username already exists
    at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
    at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
    at WebAPI.Middleware.ExceptionMiddleware.InvokeAsync(HttpContext context) in D:\Nadeem\UserManagement_API\src\WebAPI\Middleware\ExceptionMiddleware.cs:line 23
-[16:30:45 ERR] Username already exists
-[16:30:45 ERR] An error occurred while creating user 'itadmin1'
+2025-09-04 16:11:58.365 +04:00 [INF] User itadmin1
+2025-09-04 16:12:13.413 +04:00 [ERR] User "6c33b401-24ad-460c-aacb-400230ed5ae0" logged in
+2025-09-04 16:30:29.909 +04:00 [ERR] Username already exists
+2025-09-04 16:30:29.933 +04:00 [ERR] An error occurred while creating user 'itadmin'
 System.Exception: Username already exists
    at Infrastructure.Services.UserService.CreateUserAsync(RegisterRequest request) in D:\Nadeem\UserManagement_API\src\Application\Services\UserService.cs:line 30
-[16:30:47 ERR] Unhandled Exception
+2025-09-04 16:30:32.346 +04:00 [ERR] Unhandled Exception
 System.Exception: Username already exists
    at Infrastructure.Services.UserService.CreateUserAsync(RegisterRequest request) in D:\Nadeem\UserManagement_API\src\Application\Services\UserService.cs:line 30
    at WebAPI.Controller.UsersController.Create(RegisterRequest request) in D:\Nadeem\UserManagement_API\src\WebAPI\Controller\UsersController.cs:line 51
@@ -157,5 +71,31 @@ System.Exception: Username already exists
    at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
    at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
    at WebAPI.Middleware.ExceptionMiddleware.InvokeAsync(HttpContext context) in D:\Nadeem\UserManagement_API\src\WebAPI\Middleware\ExceptionMiddleware.cs:line 23
-[16:30:53 INF] User itadmin2
-[16:31:09 INF] Role changed for User "f34e278c-0301-422e-ba4f-3a5c0da3a7f1" from "9b481398-e2cf-4263-9d43-5ac45fe76ce2" to "57c8a23e-93bd-4c52-9c1e-b529a7835b4c"
+2025-09-04 16:30:45.416 +04:00 [ERR] Username already exists
+2025-09-04 16:30:45.439 +04:00 [ERR] An error occurred while creating user 'itadmin1'
+System.Exception: Username already exists
+   at Infrastructure.Services.UserService.CreateUserAsync(RegisterRequest request) in D:\Nadeem\UserManagement_API\src\Application\Services\UserService.cs:line 30
+2025-09-04 16:30:47.783 +04:00 [ERR] Unhandled Exception
+System.Exception: Username already exists
+   at Infrastructure.Services.UserService.CreateUserAsync(RegisterRequest request) in D:\Nadeem\UserManagement_API\src\Application\Services\UserService.cs:line 30
+   at WebAPI.Controller.UsersController.Create(RegisterRequest request) in D:\Nadeem\UserManagement_API\src\WebAPI\Controller\UsersController.cs:line 51
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at WebAPI.Middleware.ExceptionMiddleware.InvokeAsync(HttpContext context) in D:\Nadeem\UserManagement_API\src\WebAPI\Middleware\ExceptionMiddleware.cs:line 23
+2025-09-04 16:30:53.420 +04:00 [INF] User itadmin2
+2025-09-04 16:31:09.976 +04:00 [INF] Role changed for User "f34e278c-0301-422e-ba4f-3a5c0da3a7f1" from "9b481398-e2cf-4263-9d43-5ac45fe76ce2" to "57c8a23e-93bd-4c52-9c1e-b529a7835b4c"
+[16:33:37 INF] Role changed for User "f34e278c-0301-422e-ba4f-3a5c0da3a7f1" from "57c8a23e-93bd-4c52-9c1e-b529a7835b4c" to "57c8a23e-93bd-4c52-9c1e-b529a7835b4c"
+[16:33:43 INF] Role changed for User "f34e278c-0301-422e-ba4f-3a5c0da3a7f1" from "57c8a23e-93bd-4c52-9c1e-b529a7835b4c" to "57c8a23e-93bd-4c52-9c1e-b529a7835b4c"
+[16:33:55 INF] Role changed for User "f34e278c-0301-422e-ba4f-3a5c0da3a7f1" from "57c8a23e-93bd-4c52-9c1e-b529a7835b4c" to "57c8a23e-93bd-4c52-9c1e-b529a7835b4c"
